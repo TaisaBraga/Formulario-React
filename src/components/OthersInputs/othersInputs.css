@@ -1,0 +1,76 @@
+.switch-div{
+    display: flex;
+    padding: 0.9375em 3.3125em 1.25em 3.3125em;
+}
+  
+.switch-div p{
+    margin-left: 0.9375em;
+}
+  
+.switch {
+    position: relative;
+    display: flex;
+    padding: 0.1em;
+    width: 3em;
+    height: 1.35em;
+}
+  
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+  
+.switch .slider:before {
+    content: "";
+    position: absolute;
+    height: 1.1em;
+    width: 1.1em; 
+    border-radius: 50%;
+    left: 0.1em; 
+    bottom: 0.1em;
+    background-color: white;
+    transition: 0.4s;
+}
+
+  
+input:checked + .slider {
+    background-color: #8c74f8f6;
+}
+  
+input:checked + .slider:before {
+    transform: translateX(1.65em);
+}
+  
+.input-checkbox-div {
+    display: flex;
+    flex-direction: row;
+    padding: 0.625em 3.75em;
+}
+  
+.input-checkbox-div > label {
+    margin-left: 0.625em;
+}
+  
+.input-radio-div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    padding: 0.625em 3.75em;
+}
+  
+.input-radio-div > div > label {
+    margin-left: 0.625em;
+}
