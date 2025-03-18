@@ -1,15 +1,9 @@
 /* eslint-disable react/prop-types */
 import "./othersInputs.css";
-import { useCallback, useState } from "react";
+//import { useCallback, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-function OthersInputs({ selectorsData, setSelectorsData }) {
-  const [isOn, setIsOn] = useState(false);
-
-  const handleChangeSlider = useCallback(() => {
-    setIsOn(!isOn);
-    setSelectorsData({ ...selectorsData, switch: !isOn });
-  }, [isOn, selectorsData, setSelectorsData]);
+function OthersInputs({ selectorsData, setSelectorsData, isOn, handleChangeSlider }) {
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
@@ -17,9 +11,9 @@ function OthersInputs({ selectorsData, setSelectorsData }) {
     setSelectorsData((prevData) => ({
       ...prevData,
       [name]: type === "checkbox" ? checked : value, 
+
     }));
   };
-  
 
   return (
     <>
@@ -40,7 +34,6 @@ function OthersInputs({ selectorsData, setSelectorsData }) {
             type="checkbox"
             name="switch"
             id="slider"
-            onClick={() => handleChangeSlider()}
             checked={selectorsData.switch}
             onChange={handleChangeSlider}
           />

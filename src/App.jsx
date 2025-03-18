@@ -2,10 +2,11 @@ import "./App.css";
 import TextInputs from "./components/Inputs/textInputs";
 import DropDownInput from "./components/DropDown/dropDownInput";
 import OthersInputs from "./components/OthersInputs/othersInputs";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import SucessDialog from "./components/Dialog/sucessDialog";
 
 function App() {
+  const [isOn, setIsOn] = useState(false);
   const [formValid, setFormValid] = useState();
   const [textFormData, setTextFormData] = useState({
     username: "",
@@ -21,16 +22,15 @@ function App() {
 
   const [dropitem, setDropItem] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [errors, setErrors] = useState({})
+  const timerRef = useRef(null);
+
 
   useEffect(() => {
     if (formValid) {
-      setDialogOpen(true); 
-      
-      const timer = setTimeout(() => {
-        setDialogOpen(false); 
-        setFormValid(false)
+      setDialogOpen(true);
 
+      timerRef.current = setTimeout(() => {
+        setFormValid(false);
         setTextFormData({
           username: "",
           password: "",
@@ -42,33 +42,24 @@ function App() {
           selection: "",
         });
         setDropItem(null);
-        setErrors({})
+        setDialogOpen(false);
+      }, 8000); 
 
-      }, 8000);
-
-      return () => clearTimeout(timer);
+      return () => {
+        if (timerRef.current) {
+          clearTimeout(timerRef.current);
+          setIsOn(false)
+        }
+      };
     }
   }, [formValid]);
 
   const handleNextClick = () => {
-    const newErrors = {};
-
-    if (textFormData.username === "") {
-      newErrors.username = "* Username is required";
-    }
-    if (textFormData.password === "") {
-      newErrors.password = "* Password is required";
-    }
-    if (textFormData.textinput === "") {
-      newErrors.textinput = "* Text Input is required";
-    }
-
     if (
       textFormData.username === "" ||
       textFormData.password === "" ||
       textFormData.textinput === ""
     ) {
-      setErrors(newErrors)
       setFormValid(false);
     } else {
       setFormValid(true);
@@ -92,12 +83,13 @@ function App() {
       selection: "",
     });
     setDropItem(null);
-    setErrors({})
+    setIsOn(false)
+    
   };
 
   const handleCloseDialog = () => {
-    setDialogOpen(false)
-    setFormValid(false)
+    setDialogOpen(false);
+    setFormValid(false);
 
     setTextFormData({
       username: "",
@@ -109,51 +101,50 @@ function App() {
       switch: false,
       selection: "",
     });
+    setIsOn(false)
     setDropItem(null);
-    setErrors({})
-  }
+    clearTimeout(timerRef.current);
+  };
+
+  const handleChangeSlider = () => {
+    setIsOn(!isOn);
+    setSelectorsData({ ...selectorsData, switch: !isOn });
+  };
 
   return (
-    <>
-      <div className="form-div">
-        <TextInputs
-          setTextFormData={setTextFormData}
-          textFormData={textFormData}
-          errors={errors}
-          setErrors={setErrors}
-        />
-        <OthersInputs
-          setSelectorsData={setSelectorsData}
-          selectorsData={selectorsData}
-        />
-        <DropDownInput setDropItem={setDropItem} dropitem={dropitem} />
+    <form action="" className="form-div" onSubmit={(e) => e.preventDefault()}>
+      <TextInputs textFormData={textFormData} setTextFormData={setTextFormData} />
+      <OthersInputs
+        setSelectorsData={setSelectorsData}
+        selectorsData={selectorsData}
+        handleChangeSlider={handleChangeSlider}
+        isOn={isOn}
+      />
+      <DropDownInput setDropItem={setDropItem} dropitem={dropitem} />
 
-        {dialogOpen && (
-          <div className="sucessDialog" onClick={handleCloseDialog}>
-            <dialog open className="dialog-content">
-              <SucessDialog />
-            </dialog>
-          </div>
-        )}
-
-        <div className="button">
-          <button
-            type="button"
-            className="cancel-btn"
-            onClick={() => handleCancelClick()}
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
-            className="next-btn"
-            onClick={() => handleNextClick()}
-          >
-            Next
-          </button>
+      {dialogOpen && (
+        <div className="sucessDialog" >
+          <dialog open className="dialog-content" onClick={handleCloseDialog}>
+            <SucessDialog />
+          </dialog>
         </div>
+      )}
+
+      <div className="button">
+        <input
+          type="button"
+          className="cancel-btn"
+          onClick={handleCancelClick}
+          value="Cancel"
+        />
+        <input
+          type="submit"
+          className="next-btn"
+          onClick={handleNextClick}
+          value="Next"
+        />
       </div>
-    </>
+    </form>
   );
 }
 

@@ -1,22 +1,15 @@
 /* eslint-disable react/prop-types */
-import './textInputs.css'
+import "./textInputs.css";
 
-function TextInputs({setTextFormData, textFormData, errors, setErrors}) {
-
+function TextInputs({textFormData, setTextFormData}) {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (errors[name]) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: null, 
-      }));
-    }
     setTextFormData({ ...textFormData, [name]: value });
-  };
 
+  }
   return (
     <div className="input-text-div">
-      <label htmlFor="username">Username</label>
+      <label htmlFor="username">Username <abbr title="required">*</abbr></label>
       <input
         required
         type="text"
@@ -26,8 +19,7 @@ function TextInputs({setTextFormData, textFormData, errors, setErrors}) {
         value={textFormData.username}
         onChange={handleChange}
       />
-      {errors.username && <span className="error">{errors.username}</span>}
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password">Password <abbr title="required">*</abbr></label>
       <input
         required
         type="password"
@@ -35,13 +27,18 @@ function TextInputs({setTextFormData, textFormData, errors, setErrors}) {
         id="password"
         placeholder="Enter password"
         aria-label="Your password is between 4 and 12 characteres"
-        onChange={handleChange}
         value={textFormData.password}
+        onChange={handleChange}
       />
-      {errors.password && <span className="error">{errors.password}</span>}
-      <label htmlFor="textinput">Input Text Label</label>
-      <input type="text" name="textinput" id="textinput" required onChange={handleChange} value={textFormData.textinput} />
-      {errors.textinput && <span className="error">{errors.textinput}</span>}
+      <label htmlFor="textinput">Input Text Label <abbr title="required">*</abbr></label>
+      <input
+        type="text"
+        name="textinput"
+        id="textinput"
+        required
+        value={textFormData.textinput}
+        onChange={handleChange}
+      />
     </div>
   );
 }
