@@ -1,8 +1,11 @@
-# React + Vite
+# Mentoria Globant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project serves as a comprehensive example for mentoring sessions focused on React development. It was built with the intention of illustrating core concepts, including:
 
-Currently, two official plugins are available:
+- Component-Based Architecture: Understanding how to break down a UI into reusable components.
+- State Management: Learning how to manage and update data within a React application.
+- Form Handling: Implementing forms, handling user input, and validating data.
+- Modern Development Workflow: Utilizing Vite for a fast and efficient development experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is designed to be a hands-on learning resource. The code is thoroughly documented, making it easy for mentees to follow along and understand the reasoning behind each decision. It's intended to be used as a reference, allowing mentees to explore, experiment, and solidify their understanding of React.
+
