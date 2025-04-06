@@ -1,23 +1,62 @@
 /* eslint-disable react/prop-types */
+import Inputs from "../../atoms/Inputs";
 import "./othersInputs.css";
-//import { useCallback, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-function OthersInputs({ selectorsData, setSelectorsData, isOn, handleChangeSlider }) {
-
-  const handleChange = (e) => {
-    const { name, type, value, checked } = e.target;
-  
-    setSelectorsData((prevData) => ({
-      ...prevData,
-      [name]: type === "checkbox" ? checked : value, 
-
-    }));
-  };
-
+export default function OthersInputs() {
   return (
-    <>
-      <div className="input-checkbox-div">
+    <div id="othesInput-div">
+      <Inputs
+        textDivId={"input-checkbox-div"}
+        labelFor={"remember"}
+        labelValue={"Remember Me"}
+        inputName={"remember"}
+        inputId={"remember"}
+        inputType={"checkbox"}
+        inputValue={""}
+        onchangeFun={() => {}}
+      />
+      <Inputs
+        textDivId={"switch-div"}
+        labelFor={"switch"}
+        labelValue={"On"}
+        inputName={"switch"}
+        inputId={"slider"}
+        inputType={"checkbox"}
+        inputValue={""}
+        onchangeFun={() => {}}
+      />
+      <Inputs
+        textDivId={"input-radio-div"}
+        labelFor={"radio1"}
+        labelValue={"Radio Selection 1"}
+        inputName={"selection"}
+        inputId={"radio1"}
+        inputType={"radio"}
+        inputValue={"Radio Selection 1"}
+        onchangeFun={() => {}}
+      />
+      <Inputs
+        textDivId={"input-radio-div"}
+        labelFor={"radio2"}
+        labelValue={"Radio Selection 2"}
+        inputName={"selection"}
+        inputId={"radio2"}
+        inputType={"radio"}
+        inputValue={"Radio Selection 2"}
+        onchangeFun={() => {}}
+      />
+      <Inputs
+        textDivId={"input-radio-div"}
+        labelFor={"radio3"}
+        labelValue={"Radio Selection 3"}
+        inputName={"selection"}
+        inputId={"radio3"}
+        inputType={"radio"}
+        inputValue={"Radio Selection 3"}
+        onchangeFun={() => {}}
+      />
+      {/* <div className="input-checkbox-div">
         <input
           type="checkbox"
           name="remember"
@@ -26,9 +65,9 @@ function OthersInputs({ selectorsData, setSelectorsData, isOn, handleChangeSlide
           onChange={handleChange}
         />
         <label htmlFor="remember">Remember Me</label>
-      </div>
+      </div> */}
 
-      <div className="switch-div">
+      {/* <div className="switch-div">
         <label className="switch">
           <input
             type="checkbox"
@@ -40,9 +79,9 @@ function OthersInputs({ selectorsData, setSelectorsData, isOn, handleChangeSlide
           <span className="slider"></span>
         </label>
         <p>{isOn ? "On" : "Off"}</p>
-      </div>
+      </div> */}
 
-      <div className="input-radio-div">
+      {/* <div className="input-radio-div">
         <div>
           <input
             type="radio"
@@ -76,9 +115,7 @@ function OthersInputs({ selectorsData, setSelectorsData, isOn, handleChangeSlide
           />
           <label htmlFor="radio3">Radio Selection 3</label>
         </div>
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 }
-
-export default OthersInputs;

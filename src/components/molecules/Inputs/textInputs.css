@@ -1,0 +1,21 @@
+#username, #password, #textinput {
+    border: 1px solid #a29f9f;
+    border-radius: 0.5em;
+    padding: 0.6em;
+    width: 30em;
+    margin-top: 0.2em; 
+}
+
+.input-text-div {
+    display: flex;
+    flex-direction: column;
+    padding: 0.9375em 3.125em;
+    font-size: 14px;
+}
+
+
+#divId{
+    margin-top: 0.9em;
+    display: flex;
+    flex-direction: column;
+}

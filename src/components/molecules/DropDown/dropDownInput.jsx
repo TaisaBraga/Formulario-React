@@ -38,9 +38,9 @@ function DropDownInput({setDropItem, dropitem }) {
 
   return (
     <div className="dropdown-input">
-      <label className="dropdown-label">Dropdown Title</label>
+      <label className="dropdown-label" style={{color: "#666666", fontFamily: 'Noto Sans, sans-serif'}}>Dropdown Title</label>
       <div className="dropdown">
-        <div className="dropdown-selected" onClick={handleClickOpen}>
+        <div className="dropdown-selected" onClick={handleClickOpen} style={{color: "#666666", fontFamily: 'Noto Sans, sans-serif'}}>
           {selectedItem ? selectedItem : "Dropdown option"}
         </div>
         <ul
@@ -52,6 +52,7 @@ function DropDownInput({setDropItem, dropitem }) {
               key={index}
               className="dropdown-item"
               onClick={() => handleSelectItem(item)}
+              style={{color: "#666666", fontFamily: 'Noto Sans, sans-serif'}}
             >
               {item}
             </li>

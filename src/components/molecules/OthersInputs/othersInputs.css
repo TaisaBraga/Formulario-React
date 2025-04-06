@@ -1,0 +1,84 @@
+#othesInput-div{
+    padding: 0.9375em 3.125em;
+    font-size: 14px;
+}
+
+/* Checkbox */
+
+#input-checkbox-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 1em;
+}
+  
+#input-checkbox-div > label {
+    margin-left: 1em;
+}
+
+#input-checkbox-div input[type="checkbox"] {
+    accent-color: #8c74f8f6; 
+}
+ 
+
+/* Slider */
+
+#switch-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.3em;
+    margin-bottom: 0.8em;
+    font-size: 14px;
+}
+  
+#switch-div input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 2.8em;
+    height: 1.5em;
+    background-color: #a4a2a2;
+    border-radius: 1em;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+  
+#switch-div input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    height: 1em;
+    width: 1em;
+    background-color: rgba(255, 255, 255, 0.757);
+    border-radius: 50%;
+    top: 0.2em;
+    left: 0.2em;
+    transition: transform 0.3s ease-in-out;
+}
+  
+#switch-div input[type="checkbox"]:checked {
+    background-color: #8c74f8f6;
+}
+  
+#switch-div input[type="checkbox"]:checked::before {
+    transform: translateX(1.2em);
+}
+  
+/* Radio */
+  
+#input-radio-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 1em;
+}
+  
+#input-radio-div > label {
+    margin-left: 0.625em;
+}
+
+#input-radio-div input[type="radio"] {
+    accent-color: #8c74f8f6;
+  }

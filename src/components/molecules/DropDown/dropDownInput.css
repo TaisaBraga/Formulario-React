@@ -1,29 +1,8 @@
-@media screen and (min-width: 300px) and (max-width: 600px) {
-    .dropdown {
-        position: relative;
-        width: 18.925em;
-    }
-}
-
-@media screen and (min-width: 601px) and (max-width: 800px) {
-    .dropdown {
-        position: relative;
-        width: 28.925em;
-    }
-}
-
-@media screen and (min-width: 801px){
-    .dropdown {
-        position: relative;
-        width: 41.925em;
-    }
-}
-
 .dropdown-input {
     display: flex;
     flex-direction: column;
-    width: 40.625em;
-    padding: 1.25em 3.125em;
+    padding: 0.9375em 3.125em;
+    font-size: 14px;
 }
   
 .dropdown-label {
@@ -56,7 +35,6 @@ li {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100%;
     background: white;
     border: 1px solid #a29f9f;
     border-top: none;
