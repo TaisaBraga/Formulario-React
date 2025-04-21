@@ -2,7 +2,7 @@
 import Inputs from "../../atoms/Inputs";
 import "./textInputs.css";
 
-function TextInputs() {
+function TextInputs({ register, errors }) {
   return (
     <div className="input-text-div">
       <Inputs
@@ -13,8 +13,8 @@ function TextInputs() {
         inputName={"username"}
         placeholder={"Enter username"}
         inputId={"username"}
-        inputValue={""}
-        onchangeFun={() => {}}
+        register={register("username")}
+        error={errors?.username?.message}
       />
       <Inputs
         textDivId={"divId"}
@@ -24,8 +24,8 @@ function TextInputs() {
         inputName={"password"}
         placeholder={"Enter password"}
         inputId={"password"}
-        inputValue={""}
-        onchangeFun={() => {}}
+        register={register("password")}
+        error={errors?.password?.message}
       />
       <Inputs
         textDivId={"divId"}
@@ -34,8 +34,7 @@ function TextInputs() {
         inputType={"text"}
         inputName={"textinput"}
         inputId={"textinput"}
-        inputValue={""}
-        onchangeFun={() => {}}
+        register={register("textinput")}
       />
     </div>
   );

@@ -1,5 +1,4 @@
 import React from "react";
-
 export interface IInputsProps {
   textDivId: string | "";
   labelFor: string | "";
@@ -8,24 +7,31 @@ export interface IInputsProps {
   placeholder: string | "";
   inputName: string | "";
   inputId: string | "";
-  inputValue: string | "";
-  onchangeFun: () => void;
+  register?: any;
+  error: string | "";
 }
 
-export default function Inputs (props: IInputsProps) {
+export default function Inputs(props: IInputsProps) {
+
   return (
     <div id={props.textDivId}>
-      <label htmlFor={props?.labelFor} style={{color: "#666666", fontFamily: 'Noto Sans, sans-serif'}}>{props?.labelValue}</label>
+      <label
+        htmlFor={props?.labelFor}
+        style={{ color: "#666666", fontFamily: "Noto Sans, sans-serif" }}
+      >
+        {props?.labelValue}
+      </label>
       <input
-        name={props?.inputName}
-        id={props?.inputId}
         type={props?.inputType}
+        {...props?.register}
+        id={props?.inputId}
         placeholder={props?.placeholder}
-        value={props?.inputValue}
-        onChange={props?.onchangeFun}
       />
+      {props?.error && (
+        <span style={{ color: "red", fontSize: "0.7rem" }}>
+          {props?.error}
+        </span>
+      )}
     </div>
   );
-};
-
- Inputs;
+}
