@@ -8,6 +8,7 @@ export interface IInputsProps {
   inputName: string | "";
   inputId: string | "";
   register?: any;
+  checked?: boolean;
   error: string | "";
 }
 
@@ -24,6 +25,7 @@ export default function Inputs(props: IInputsProps) {
       <input
         type={props?.inputType}
         {...props?.register}
+        checked={props?.checked}
         id={props?.inputId}
         placeholder={props?.placeholder}
       />

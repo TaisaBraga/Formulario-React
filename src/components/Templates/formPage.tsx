@@ -9,26 +9,41 @@ import DropDownInput from "../molecules/DropDown/dropDownInput";
 import Buttons from "../atoms/Buttons";
 
 const FormShema = z.object({
-  username: z.string().min(3, { message: "Username must be at least 3 characters long" }).nonempty("Username is required"),
-  password: z.string().min(8, { message: "Password must be at least 8 characters long" }).nonempty("Password is required"),
-  textinput: z.string()
+  username: z
+    .string()
+    .min(3, { message: "Username must be at least 3 characters long" })
+    .nonempty("Username is required"),
+  password: z
+    .string()
+    .min(8, { message: "Password must be at least 8 characters long" })
+    .nonempty("Password is required"),
+  textinput: z.string(),
+  remember: z.boolean(),
+  switch: z.boolean(),
+  radioSelection: z.string(),
 });
 
 type FormSchemaType = z.infer<typeof FormShema>;
 
 const FormPage = () => {
-  const { handleSubmit, reset, register, formState: { errors } } = useForm<FormSchemaType>({
+  const {
+    handleSubmit,
+    reset,
+    register,
+    watch,
+    formState: { errors },
+  } = useForm<FormSchemaType>({
     resolver: zodResolver(FormShema),
   });
 
   const handleFormSubmit = (data: FormSchemaType) => {
-    console.log("dataForm", data);
+    console.log("dataForm", {data});
   };
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="form-container">
       <TextInputs register={register} errors={errors} />
-      <OthersInputs />
+      <OthersInputs register={register} watch={watch} />
       <DropDownInput setDropItem={""} dropitem={""} />
       <div className="button-container">
         <Buttons
