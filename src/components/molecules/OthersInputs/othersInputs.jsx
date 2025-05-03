@@ -4,7 +4,7 @@ import "./othersInputs.css";
 
 export default function OthersInputs({ register, watch }) {
   const isChecked = watch("switch")
-  const radioSelection = watch("radioSelection", "")
+  const radioSelection = watch("radioSelection")
 
   return (
     <div id="othesInput-div">

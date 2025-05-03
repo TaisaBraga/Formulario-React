@@ -1,66 +1,32 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useRef, useState } from "react";
-import "./dropDownInput.css";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
-function DropDownInput({setDropItem, dropitem }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("");
-  const dropdownRef = useRef(null);
+export default function SelectSmall({ register }) {
 
-  const dropDownOptions = [
-    "Dropdown option",
-    "Dropdown option 1",
-    "Dropdown option 2",
-  ];
-
-  useEffect(() => {
-    if(dropitem == null){
-      setSelectedItem("")
-    }
-  }, [dropitem])
-  
-  const handleClickOpen = () => {
-    if (isOpen == true) {
-      setIsOpen(false);
-      dropdownRef.current ? dropdownRef.current.classList.remove("show") : null;
-    } else {
-      setIsOpen(true);
-      dropdownRef.current ? dropdownRef.current.classList.toggle("show") : null;
-    }
-  };
-
-  const handleSelectItem = (text) => {
-    setIsOpen(false);
-    dropdownRef.current?.classList.remove("show");
-    setSelectedItem(text);
-    setDropItem(text); 
-  };;
 
   return (
-    <div className="dropdown-input">
-      <label className="dropdown-label" style={{color: "#666666", fontFamily: 'Noto Sans, sans-serif'}}>Dropdown Title</label>
-      <div className="dropdown">
-        <div className="dropdown-selected" onClick={handleClickOpen} style={{color: "#666666", fontFamily: 'Noto Sans, sans-serif'}}>
-          {selectedItem ? selectedItem : "Dropdown option"}
-        </div>
-        <ul
-          className="dropdown-list"
-          style={{ display: isOpen ? "block" : "none" }}
-        >
-          {dropDownOptions.map((item, index) => (
-            <li
-              key={index}
-              className="dropdown-item"
-              onClick={() => handleSelectItem(item)}
-              style={{color: "#666666", fontFamily: 'Noto Sans, sans-serif'}}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <FormControl sx={{ p: 1, minWidth: 450 }} size="small">
+      <InputLabel id="demo-select-small-label" sx={{ml: 2 }}>
+        Options
+      </InputLabel>
+      <Select
+        sx={{ m: 3, mt: 5 }}
+        labelId="dropdown-label"
+        id="dropdown"
+        defaultValue=""
+        label="Option"
+        {...register("dropdownSelection")}
+      >
+        <MenuItem >
+          <em>None</em>
+        </MenuItem>
+        <MenuItem value="Option 1">Option 1</MenuItem>
+        <MenuItem value="Option 2">Option 2</MenuItem>
+        <MenuItem value="Option 3">Option 3</MenuItem>
+      </Select>
+    </FormControl>
   );
 }
-
-export default DropDownInput;

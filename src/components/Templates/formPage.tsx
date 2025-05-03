@@ -20,7 +20,7 @@ const FormShema = z.object({
   textinput: z.string(),
   remember: z.boolean(),
   switch: z.boolean(),
-  radioSelection: z.string(),
+  radioSelection: z.string()
 });
 
 type FormSchemaType = z.infer<typeof FormShema>;
@@ -44,7 +44,7 @@ const FormPage = () => {
     <form onSubmit={handleSubmit(handleFormSubmit)} className="form-container">
       <TextInputs register={register} errors={errors} />
       <OthersInputs register={register} watch={watch} />
-      <DropDownInput setDropItem={""} dropitem={""} />
+      <DropDownInput register={register} />
       <div className="button-container">
         <Buttons
           buttonType="reset"
