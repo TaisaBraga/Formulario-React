@@ -20,7 +20,8 @@ const FormShema = z.object({
   textinput: z.string(),
   remember: z.boolean(),
   switch: z.boolean(),
-  radioSelection: z.string()
+  radioSelection: z.string(),
+  dropdownSelection: z.string()
 });
 
 type FormSchemaType = z.infer<typeof FormShema>;
@@ -31,9 +32,19 @@ const FormPage = () => {
     reset,
     register,
     watch,
+    control,
     formState: { errors },
   } = useForm<FormSchemaType>({
     resolver: zodResolver(FormShema),
+    defaultValues: {
+    username: "",
+    password: "",
+    textinput: "",
+    remember: false,
+    switch: false,
+    radioSelection: "",
+    dropdownSelection: "defaultValue"
+    }
   });
 
   const handleFormSubmit = (data: FormSchemaType) => {
@@ -44,7 +55,7 @@ const FormPage = () => {
     <form onSubmit={handleSubmit(handleFormSubmit)} className="form-container">
       <TextInputs register={register} errors={errors} />
       <OthersInputs register={register} watch={watch} />
-      <DropDownInput register={register} />
+      <DropDownInput control={control} />
       <div className="button-container">
         <Buttons
           buttonType="reset"
