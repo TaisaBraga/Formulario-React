@@ -17,14 +17,17 @@ export default function OthersInputs({ register, watch }) {
         register={register("remember")}
 
       />
-      <Inputs
+      <div style={{padding: "0.5em 0 0.5em 0"}}>
+        <Inputs
         textDivId={"switch-div"}
         labelFor={"switch"}
         labelValue={isChecked ? "On" : "Off"}
         inputId={"slider"}
         inputType={"checkbox"}
         register={register("switch")}
-      />
+        />
+      </div>
+      
       <Inputs
         textDivId={"input-radio-div"}
         labelFor={"radio1"}

@@ -49,6 +49,8 @@ const FormPage = () => {
 
   const handleFormSubmit = (data: FormSchemaType) => {
     console.log("dataForm", {data});
+    window.alert("Dados gravados com sucesso!")
+    reset()
   };
 
   return (

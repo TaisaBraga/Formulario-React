@@ -8,8 +8,8 @@ import Select from "@mui/material/Select";
 export default function SelectSmall({ control }) {
 
   return (
-    <FormControl sx={{ p: 1, minWidth: 450 }} size="small">
-      <InputLabel id="demo-select-small-label" sx={{ml: 2}}>
+    <FormControl sx={{ p: 1.5, minWidth: 500 }} size="small">
+      <InputLabel id="demo-select-small-label" sx={{ml: 2, p: 1.5}}>
         Dropdown Title
       </InputLabel>
       <Controller
