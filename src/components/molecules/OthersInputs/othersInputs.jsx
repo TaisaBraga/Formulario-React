@@ -33,6 +33,7 @@ export default function OthersInputs({ register, watch }) {
         inputType={"radio"}
         register={register("radioSelection")}
         checked={radioSelection === "radio1"}
+        value="radio1"
 
       />
       <Inputs
@@ -43,6 +44,7 @@ export default function OthersInputs({ register, watch }) {
         inputType={"radio"}
         register={register("radioSelection")}
         checked={radioSelection === "radio2"}
+        value="radio2"
 
       />
       <Inputs
@@ -53,6 +55,7 @@ export default function OthersInputs({ register, watch }) {
         inputType={"radio"}
         register={register("radioSelection")}
         checked={radioSelection === "radio3"}
+        value="radio3"
       />
     </div>
   );

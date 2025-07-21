@@ -10,7 +10,6 @@ function TextInputs({ register, errors }) {
         labelFor={"username"}
         labelValue={"Username"}
         inputType={"text"}
-        inputName={"username"}
         placeholder={"Enter username"}
         inputId={"username"}
         register={register("username")}
@@ -21,7 +20,6 @@ function TextInputs({ register, errors }) {
         labelFor={"password"}
         labelValue={"Password"}
         inputType={"password"}
-        inputName={"password"}
         placeholder={"Enter password"}
         inputId={"password"}
         register={register("password")}
@@ -32,7 +30,6 @@ function TextInputs({ register, errors }) {
         labelFor={"textinput"}
         labelValue={"Input Text Label"}
         inputType={"text"}
-        inputName={"textinput"}
         inputId={"textinput"}
         register={register("textinput")}
       />

@@ -1,37 +1,49 @@
-import React from "react";
-export interface IInputsProps {
+import React, { InputHTMLAttributes } from "react";
+
+export interface IInputsProps extends InputHTMLAttributes<HTMLInputElement> {
   textDivId: string | "";
   labelFor: string | "";
   labelValue: string | "";
   inputType: string | "";
   placeholder: string | "";
-  inputName: string | "";
   inputId: string | "";
   register?: any;
   checked?: boolean;
   error: string | "";
 }
 
-export default function Inputs(props: IInputsProps) {
+export default function Inputs({
+  textDivId,
+  labelFor,
+  labelValue,
+  inputType,
+  placeholder,
+  inputId,
+  register,
+  checked,
+  error,
+  ...rest
+}: IInputsProps) {
 
   return (
-    <div id={props.textDivId}>
+    <div id={textDivId}>
       <label
-        htmlFor={props?.labelFor}
+        htmlFor={labelFor}
         style={{ color: "#666666", fontFamily: "Noto Sans, sans-serif" }}
       >
-        {props?.labelValue}
+        {labelValue}
       </label>
       <input
-        type={props?.inputType}
-        {...props?.register}
-        checked={props?.checked}
-        id={props?.inputId}
-        placeholder={props?.placeholder}
+        type={inputType}
+        {...register}
+        {...rest}
+        checked={checked}
+        id={inputId}
+        placeholder={placeholder}
       />
-      {props?.error && (
+      {error && (
         <span style={{ color: "red", fontSize: "0.7rem" }}>
-          {props?.error}
+          {error}
         </span>
       )}
     </div>
