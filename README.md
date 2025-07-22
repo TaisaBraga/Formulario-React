@@ -9,3 +9,4 @@ This project serves as a comprehensive example for mentoring sessions focused on
 
 This project is designed to be a hands-on learning resource. The code is thoroughly documented, making it easy for mentees to follow along and understand the reasoning behind each decision. It's intended to be used as a reference, allowing mentees to explore, experiment, and solidify their understanding of React.
 
+<img width="1333" height="852" alt="Principal Page" src="https://github.com/user-attachments/assets/e0cbdc90-8845-45d1-91a4-4220fd10487c" />
