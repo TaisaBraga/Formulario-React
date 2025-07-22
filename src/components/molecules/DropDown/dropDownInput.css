@@ -1,0 +1,13 @@
+*{
+    color: rgb(102, 102, 102);
+    font-family: "Noto Sans", sans-serif;
+}
+
+.options{
+    font-size: 14px;
+}
+
+.dropTitle{
+    font-size: 20px;
+    font-family: "Noto Sans", sans-serif;
+}

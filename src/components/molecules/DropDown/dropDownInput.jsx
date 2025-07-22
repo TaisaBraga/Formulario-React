@@ -4,6 +4,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import "./dropDownInput.css"
 
 export default function SelectSmall({ control }) {
 
@@ -18,6 +19,7 @@ export default function SelectSmall({ control }) {
         defaultValue="defaultValue"
         render={({ field }) => (
      <Select
+            className="options"
             labelId="dropdown-label"
             id="dropdown"
             {...field}
@@ -25,10 +27,10 @@ export default function SelectSmall({ control }) {
             onChange={(e) => field.onChange(e.target.value)}
             sx={{ m: 3, mt: 2 }}
           >
-        <MenuItem value="defaultValue"><em>---</em></MenuItem>
-        <MenuItem value="Option 1">Option 1</MenuItem>
-        <MenuItem value="Option 2">Option 2</MenuItem>
-        <MenuItem value="Option 3">Option 3</MenuItem>
+        <MenuItem value="defaultValue" className="options"><em>---</em></MenuItem>
+        <MenuItem value="Option 1" className="options">Option 1</MenuItem>
+        <MenuItem value="Option 2" className="options">Option 2</MenuItem>
+        <MenuItem value="Option 3" className="options">Option 3</MenuItem>
       </Select>
        )}
       />
